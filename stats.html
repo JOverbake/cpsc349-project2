@@ -1,0 +1,71 @@
+---
+layout: base
+pagination: 
+ data: collections.photos
+ size: 25
+ alias: stats
+---
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stats</title>
+    <link rel="stylesheet" href="{{ '/styles/tailwind.css' | url }}">
+    <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
+    <link rel="stylesheet" href="/styles/styles.css">
+  </head>
+  <header>
+    <ul>
+      <li class="navbar">
+        <a href="/">
+          Home
+        </a>
+        <a href="/photographers">
+          Photographers
+          </a>
+          <a href="/about">
+          About
+          </a>
+      </li>
+    </ul>
+</header>
+  <body>
+    <br>
+    <div class="container">
+    <h1>Photo Stats</h1>
+    <p>The Views, Downloads and Score for each photo can be seen below </p>
+  </div>
+ 
+    <table id="stats">
+      <tr>
+        <th>Photo</th>
+        <th>Views</th>
+        <th>Downloads</th>
+        <th>Rating (as a decimal)</th>
+      </tr>
+      
+      
+      {% for photo in stats %}
+      <tr>
+        <td>
+          <a href="{{photo.data.photo_url}}" target="_blank"><img src="{{ photo.data.photo_image_url }}" id="pet_photo"/></a></td>
+        <td>{{photo.data.stats_views}}</td>
+        <td>{{photo.data.stats_downloads}}</td>
+        <td>{{photo.data.score}}</td>
+
+      </tr>
+      {% endfor %}
+   
+  </table>
+  
+
+<div class="container" id="page">
+  {% if pagination.href.previous %}
+  <a href="{{ pagination.href.previous | url }} " class="pagination">Previous</a>
+  {% endif %}
+  {% if pagination.href.next %}
+  <a href="{{pagination.href.next | url }}" class="pagination">Next </a>
+  {% endif %}
+</div>
+  </body>
+  </html>

@@ -6,8 +6,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{{ '/styles/tailwind.css' | url }}">
         <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <style>
+            :root {
+          --red: {{red}};
+          --green: {{green}};
+          --blue: {{blue}};
+        
+          --accessible-color: calc(
+            (
+              (
+                (
+                  (var(--red) * 299) +
+                  (var(--green) * 587) +
+                  (var(--blue) * 114)
+                ) / 1000
+              ) - 128
+            ) * -1000
+          );
+        }
+        
+        body {
+          color:
+            rgb(
+              var(--accessible-color),
+              var(--accessible-color),
+              var(--accessible-color)
+            );
+          background-color:
+            rgb(
+              var(--red),
+              var(--green),
+              var(--blue)
+            );
+        }
+                </style>
+        
     </head>
+    <header>
+    </header>
     <body>
         {{ content }}
+        {% unless photos %}
+        <div>
+            <figure>
+                <figcaption> Type of camera used: {{ exif_camera_model }} </figcaption>
+                <figcaption>Photographers Username: <strong>{{ photographer_username }}</strong></figcaption>
+                <figcaption>Click on the link to be taken to full size photo. <a href="{{ photo_image_url }}" target="_blank">View Photo</a></figcaption>
+            </figure>
+        </div>
+    {% endunless %}
     </body>
+    <footer>
+        <div id="foot"> 
+            Site Created by Alfredo Alcantar, Arsal Khan, Josephine Overbeek & Pedro Hernandez 
+            <br>Contact: <a href="mailto:Group3@csu.fullerton.edu.com">Group3@csu.fullerton.edu.com</a>
+        </div>
+    </footer>
 </html>
