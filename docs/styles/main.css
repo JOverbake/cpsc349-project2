@@ -1,3 +1,10 @@
+body{
+    margin: 3%;
+}
+p.container-about-names{
+    display: flex;
+    justify-content: center;
+}
 #stats {
     border-collapse: collapse;
     width: 100%;
@@ -51,7 +58,7 @@ a:hover {
   }
 
 h1{
-    color: navy;
+    color: blue;
     font-size: 50px;
     font-family: Comic;
     text-align: center;
@@ -62,16 +69,26 @@ h2{
     font-family: Comic;
     text-align: center;
 }
-footer p{
-    font-size: 15px;
-    font-family: Comic;
+footer{
+    font-style: oblique;
+    font-size: 150%;
+    width: 100%;
+    background-color: darkblue;
+    display:flex;
+    justify-content: center;
+    color: white;
+    padding: 1%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+#contact-info {
+    text-decoration: none;
+    color: white;
 }
 .navbar a:hover{
     color: red;
-}
-#foot{
-    display:flex;
-    justify-content: flex-start;
 }
 .navbar{
     display: flex;
