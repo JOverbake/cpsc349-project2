@@ -1,9 +1,8 @@
 body{
     margin: 3%;
 }
-p.container-about-names{
-    display: flex;
-    justify-content: center;
+.container-about-names{
+    text-align: center;
 }
 #stats {
     border-collapse: collapse;
@@ -71,7 +70,7 @@ h2{
 }
 footer{
     font-style: oblique;
-    font-size: 150%;
+    font-size: 75%;
     width: 100%;
     background-color: darkblue;
     display:flex;
@@ -98,4 +97,7 @@ footer{
 .info{
     font-size: 20px;
     font-family: Comic;
+}
+.site-list{
+    text-align: center;
 }
